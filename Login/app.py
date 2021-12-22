@@ -31,3 +31,18 @@ def home():
 @login_required
 def dashboard():
   return render_template('dashboard.html')
+
+
+@app.route('/dashboard/images/')
+def images():
+  return render_template('images.html')
+
+
+@app.route('/dashboard/expenses/')
+def expenses():
+  return render_template('expenses.html')
+
+
+@app.route('/dashboard/images/expenses/')
+def images_expenses():
+  return render_template('expenses.html')
