@@ -7,8 +7,7 @@ app.secret_key = b'\xcc^\x91\xea\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
 app.config['TESTING'] = False
 # Database
 client = pymongo.MongoClient('localhost', 27017)
-db = client.user_login_system
-
+db = client.diary
 # Decorators
 def login_required(f):
   @wraps(f)
@@ -46,3 +45,8 @@ def expenses():
 @app.route('/dashboard/images/expenses/')
 def images_expenses():
   return render_template('expenses.html')
+
+# @app.route("/add_one")
+# def add_one():
+#     db.todos.insert_one({'id':1, 'body': "page"})
+#     return flask.jsonify(message="success")
