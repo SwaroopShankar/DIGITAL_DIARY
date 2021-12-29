@@ -49,13 +49,13 @@ class User:
     
     return jsonify({ "error": "Invalid login credentials" }), 401
 
-  class Page:
-    def save(self):
-      print(request.form)
+  # class Page:
+  #   def save(self):
+  #     print(request.form)
 
-      diary={
-      "_id": uuid.uuid4().hex,
-      "body": request.form.get('page'),
-      }
-  if db.page.insert_one(diary):
+  #     diary={
+  #     "_id": uuid.uuid4().hex,
+  #     "body": request.form.get('page'),
+  #     }
+  # if db.page.insert_one(diary):
     

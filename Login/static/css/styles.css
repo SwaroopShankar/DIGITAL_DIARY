@@ -24,6 +24,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   margin: 0;
   font-family: sans-serif;
@@ -36,6 +37,7 @@ body {
 /* Typography */
 .center {
   text-align: center;
+  color:#CDF0EA;
 }
 
 h1 {
@@ -71,7 +73,7 @@ p {
   width: 460px;
   box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
   border-radius: 5px;
-  background: var(--white);
+  background-color: rgba(0,0,0, 0.4);
 }
 
 @media only screen and (max-width: 520px) {
