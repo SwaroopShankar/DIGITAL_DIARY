@@ -40,6 +40,22 @@ body {
   color:#CDF0EA;
 }
 
+.Header{
+  color:white;
+  background-color:#191919;
+  align-items: center;
+  padding-left: 35%;
+}
+.Header h1{
+  color:white;
+  display:inline;
+  font-size:50px;
+}
+
+.Header img{
+  width:70px;
+}
+
 h1 {
   margin: 0.5em 0 1em;
   font-size: 26px;

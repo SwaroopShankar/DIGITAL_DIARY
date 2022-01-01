@@ -9,6 +9,15 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>DD</title>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="/resources/demos/style.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+      <script>
+       $( function() {
+         $( "#datepicker" ).datepicker();
+       } );
+      </script>
       <style>
           *{
               margin: 0;
@@ -17,7 +26,7 @@
           li a {
               text-align: center;
               float: left;
-              color: #000;
+              color:#CDF0EA;
               padding: 10px 11%;
               text-decoration: none;
           }
@@ -32,7 +41,7 @@
           }
           ul {
               list-style-type: none;
-              background-color: aqua;
+              background-color: rgba(0,0,0, 0.4);
               border: 1px solid #555;
               overflow: hidden;
           }
@@ -62,6 +71,10 @@
       </style>
   </head>
   <body>
+    <div class="Header">
+         <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/facebook/304/open-book_1f4d6.png">
+         <h1>DIGITAL-DIARY</h1>
+    </div>
     <div class="center">
         <a href="/user/signout" class="btn btn--secondary">Sign Out</a>
       </div>
@@ -70,7 +83,8 @@
           <li><a href="/dashboard/images/">Images</a></li>
           <li><a href="/dashboard/expenses">Expenses</a></li>
       </ul>
-      <textarea id="page" name = "diary" rows="40px" cols="100px"></textarea>
+      <p style="color:#ccc">Date: <input type="text" id="datepicker"></p>
+      <textarea id="page" name = "diary" rows="20px" cols="100px"></textarea>
       <div class="btn" align="right"><button >Save</button></div>
      </body>
   </html>
