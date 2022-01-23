@@ -1,6 +1,7 @@
-from flask import Flask, jsonify, request, session, redirect
+from flask import Flask, jsonify, request, session, redirect, render_template, url_for
 from passlib.hash import pbkdf2_sha256
-from app import db
+from pymongo import message
+from db import db
 import uuid
 
 class User:
@@ -23,13 +24,14 @@ class User:
     }
 
     # Encrypt the password
-    user['password'] = pbkdf2_sha256.encrypt(user['password'])
+    user['password'] = pbkdf2_sha256.hash(user['password'])
 
     # Check for existing email address
     if db.users.find_one({ "email": user['email'] }):
       return jsonify({ "error": "Email address already in use" }), 400
 
     if db.users.insert_one(user):
+      # print(user)
       return self.start_session(user)
 
     return jsonify({ "error": "Signup failed" }), 400
@@ -44,7 +46,13 @@ class User:
       "email": request.form.get('email')
     })
 
+    # print(pbkdf2_sha256.hash(request.form.get('password')))
+    print(user)
     if user and pbkdf2_sha256.verify(request.form.get('password'), user['password']):
       return self.start_session(user)
     
     return jsonify({ "error": "Invalid login credentials" }), 401
+
+  
+    
+    

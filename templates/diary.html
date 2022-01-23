@@ -1,0 +1,29 @@
+<html>
+ 
+ 
+ <body style="background-image: url(/static/diary.jpg);">
+  <div class="container my-3">
+    <h2>Your Diaries</h2>
+    
+            {% for data in content %}   
+            <table border="border">
+                <tr>
+                  <td>{{data["body"]}}</td>
+                  <td>{{data["date"]}}</td>
+                </tr>
+            </table>
+          {% endfor %}
+          
+        </tbody>
+        </table>
+
+           
+       
+</div>
+<div class="footer"> <a href = "/dashboard" >
+  <button type = "button" class = "back">BACK</button><br>
+  </a> <br></div>
+
+
+</body>
+</html>
