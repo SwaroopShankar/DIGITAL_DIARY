@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect
+from flask import Flask, render_template, session, redirect 
 from functools import wraps
 import pymongo
 
@@ -36,6 +36,9 @@ def dashboard():
 def images():
   return render_template('images.html')
 
+@app.route('/dashboard/diary/')
+def diary():
+  return render_template('diary.html')
 
 @app.route('/dashboard/expenses/')
 def expenses():
@@ -46,7 +49,3 @@ def expenses():
 def images_expenses():
   return render_template('expenses.html')
 
-# @app.route("/add_one")
-# def add_one():
-#     db.todos.insert_one({'id':1, 'body': "page"})
-#     return flask.jsonify(message="success")

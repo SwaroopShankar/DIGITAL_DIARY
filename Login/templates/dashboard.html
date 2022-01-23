@@ -27,7 +27,7 @@
               text-align: center;
               float: left;
               color:#CDF0EA;
-              padding: 10px 11%;
+              padding: 10px 10%;
               text-decoration: none;
           }
           li a.active {
@@ -82,10 +82,16 @@
           <li><a class="active" href="#page">Page</a></li>
           <li><a href="/dashboard/images/">Images</a></li>
           <li><a href="/dashboard/expenses">Expenses</a></li>
+          <li><a href="/dashboard/diary">DIARY</a></li>
+          <li></li>
       </ul>
       <p style="color:#ccc">Date: <input type="text" id="datepicker"></p>
-      <textarea id="page" name = "diary" rows="20px" cols="100px"></textarea>
-      <div class="btn" align="right"><button >Save</button></div>
+      <form name="save_page">
+      <textarea name="page" name = "diary" rows="20px" cols="100px"></textarea>
+      <input type="submit" value="save">
+    </form>
+      <script src="../static/js/scripts.js"></script>
+      <script src="../static/js/jquery.js"></script>
      </body>
   </html>
 {% endblock %}

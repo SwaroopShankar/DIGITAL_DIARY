@@ -1,4 +1,5 @@
 from flask import Flask
+from flask.templating import render_template
 from app import app
 from user.models import User
 
@@ -13,3 +14,7 @@ def signout():
 @app.route('/user/login', methods=['POST'])
 def login():
   return User().login()
+
+@app.route('/user/add_one',methods=['POST'])
+def save():
+  return User().save()
