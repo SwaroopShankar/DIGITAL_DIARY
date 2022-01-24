@@ -1,51 +1,30 @@
-from flask import Flask, render_template, session, redirect 
+
+from flask import Flask, render_template, session, redirect, url_for 
 from functools import wraps
 import pymongo
-
+from user import routes as user_routes
+from db import db
+import route
 app = Flask(__name__)
 app.secret_key = b'\xcc^\x91\xea\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
 app.config['TESTING'] = False
 # Database
-client = pymongo.MongoClient('localhost', 27017)
-db = client.diary
+app.register_blueprint(user_routes.bp)
+app.register_blueprint(route.bp)
 # Decorators
-def login_required(f):
-  @wraps(f)
-  def wrap(*args, **kwargs):
-    if 'logged_in' in session:
-      return f(*args, **kwargs)
-    else:
-      return redirect('/')
-  
-  return wrap
+
+# @app.route("/test_1")
+# def test_1():
+#   return redirect(url_for("test_2"))
+
+# @app.route("/test_2")
+# def test_2():
+#   return "hi"
+
 
 # Routes
-from user import routes
-
-@app.route('/')
-def home():
-  return render_template('home.html')
-
-@app.route('/dashboard/')
-@login_required
-def dashboard():
-  return render_template('dashboard.html')
+# from user import routes
 
 
-@app.route('/dashboard/images/')
-def images():
-  return render_template('images.html')
 
-@app.route('/dashboard/diary/')
-def diary():
-  return render_template('diary.html')
-
-@app.route('/dashboard/expenses/')
-def expenses():
-  return render_template('expenses.html')
-
-
-@app.route('/dashboard/images/expenses/')
-def images_expenses():
-  return render_template('expenses.html')
 

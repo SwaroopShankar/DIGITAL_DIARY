@@ -1,22 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="displaystyle9.css">
-    <title>DIARY DISPLAY</title>
+<html>
+ 
+ 
+ <body style="background-image: url(/static/diary.jpg);">
+  <div class="container my-3">
+    <h2>Your Diaries</h2>
     
-</head>
-<body>
-{{content}}
-<div class="bg-image">
-        <img src="{{ url_for('static', filename='diary.jpg') }}" >
-    </div>
-    <div class="box">
-   
+            {% for data in content %}   
+            <table border="border">
+                <tr>
+                  <td>{{data["body"]}}</td>
+                  <td>{{data["date"]}}</td>
+                </tr>
+            </table>
+          {% endfor %}
+          
+        </tbody>
+        </table>
 
+           
+       
 </div>
-
 <div class="footer"> <a href = "/dashboard" >
   <button type = "button" class = "back">BACK</button><br>
   </a> <br></div>

@@ -1,7 +1,7 @@
-from flask import Flask, jsonify, request, session, redirect,render_template
+from flask import Flask, jsonify, request, session, redirect, render_template, url_for
 from passlib.hash import pbkdf2_sha256
 from pymongo import message
-from app import db
+from db import db
 import uuid
 
 class User:
@@ -53,15 +53,6 @@ class User:
     
     return jsonify({ "error": "Invalid login credentials" }), 401
 
-  def save(self):
-   
-    print(request.form)
-    diary={
-    "_id": uuid.uuid4().hex,
-    "body": request.form.get('page'),
-    }
-    
-    return render_template("diary.html")
-    db.page.insert_one(diary)
+  
     
     

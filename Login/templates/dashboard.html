@@ -1,7 +1,7 @@
 
 {% extends "base.html" %}
 
-{% block content %}
+{% block content %} 
   
 <html lang="en">
   <head>
@@ -9,15 +9,6 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>DD</title>
-      <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-      <link rel="stylesheet" href="/resources/demos/style.css">
-      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-      <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-      <script>
-       $( function() {
-         $( "#datepicker" ).datepicker();
-       } );
-      </script>
       <style>
           *{
               margin: 0;
@@ -85,13 +76,10 @@
           <li><a href="/dashboard/diary">DIARY</a></li>
           <li></li>
       </ul>
-      <p style="color:#ccc">Date: <input type="text" id="datepicker"></p>
-      <form name="save_page">
-      <textarea name="page" name = "diary" rows="20px" cols="100px"></textarea>
+      <form name="save_page" method="post" action="/user/add_one">
+      <textarea name="page" rows="20px" cols="100px"></textarea>
       <input type="submit" value="save">
     </form>
-      <script src="../static/js/scripts.js"></script>
-      <script src="../static/js/jquery.js"></script>
      </body>
   </html>
 {% endblock %}

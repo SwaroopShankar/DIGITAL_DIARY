@@ -42,24 +42,24 @@ $("form[name=login_form").submit(function(e) {
   e.preventDefault();
 });
 
-$("form[name=save_page").submit(function(e) {
+// $("form[name=save_page").submit(function(e) {
 
-  var $form = $(this);
-  var $error = $form.find(".error");
-  var data = $form.serialize();
+//   var $form = $(this);
+//   var $error = $form.find(".error");
+//   var data = $form.serialize();
 
-  $.ajax({
-    url: "/user/add_one",
-    type: "POST",
-    data: data,
-    dataType: "json",
-    success: function(resp) {
-      window.location.href = "/dashboard/";
-    },
-    error: function(resp) {
-      $error.text(resp.responseJSON.error).removeClass("error--hidden");
-    }
-  });
+//   $.ajax({
+//     url: "/user/add_one",
+//     type: "POST",
+//     data: data,
+//     dataType: "json",
+//     success: function(resp) {
+//       window.location.href = "/dashboard/diary";
+//     },
+//     error: function(resp) {
+//       $error.text(resp.responseJSON.error).removeClass("error--hidden");
+//     }
+//   });
 
-  e.preventDefault();
-});
+//   e.preventDefault();
+// });
