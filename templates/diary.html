@@ -1,24 +1,53 @@
 <html>
- 
+ <head>
+   <style>
+    td,th {
+      border: 2px solid black;
+      text-align: center;
+      word-wrap:break-word;
+	color:red;
+    }
+  
+    th {
+      background: rgba(4, 14, 17, 0.507);
+      border-color: white;
+      height: 70px;
+    }
+  
+  table {
+    background-color: cyan;
+    width:680px;
+    table-layout:fixed;
+  }
+
+   </style>
+ </head>
  
  <body style="background-image: url(/static/diary.jpg);">
   <div class="container my-3">
-    <h2>Your Diaries</h2>
+    <h2 style="color: red;"><u>Your Diaries</u> </h2>
     
             {% for data in content %}   
             <table border="border">
                 <tr>
                   <td>{{data["body"]}}</td>
                   <td>{{data["date"]}}</td>
+                  <td>
+                    <!-- {% set id = data["_id"] %}
+                    <form name="update" method="post" action="/user/update/{{id}}">
+                      <input type="submit" value="edit">
+                      <input type="submit" value="delete">
+                    </form> -->
+                    <input type="button" value="edit">
+                    <input type="button" value="delete">
+                  </td>
                 </tr>
             </table>
           {% endfor %}
-          
-        </tbody>
         </table>
 
            
-       
+       <br>
 </div>
 <div class="footer"> <a href = "/dashboard" >
   <button type = "button" class = "back">BACK</button><br>

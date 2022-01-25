@@ -66,7 +66,7 @@
          <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/facebook/304/open-book_1f4d6.png">
          <h1>DIGITAL-DIARY</h1>
     </div>
-    <div class="center">
+    <div class="center" style="float: right;">
         <a href="/user/signout" class="btn btn--secondary">Sign Out</a>
       </div>
       <ul>
@@ -76,10 +76,9 @@
           <li><a href="/dashboard/diary">DIARY</a></li>
           <li></li>
       </ul>
-      <p style="color:#ccc">Date: <input type="text" id="datepicker"></p>
       <form name="save_page" method="post" action="/user/add_one">
       <textarea name="page" rows="20px" cols="100px"></textarea>
-      <input type="submit" value="save">
+      <input type="submit" value="save" style="padding: 10px; margin-right:200px">
     </form>
      </body>
   </html>

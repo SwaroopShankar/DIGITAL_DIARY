@@ -44,12 +44,15 @@ body {
   color:white;
   background-color:#191919;
   align-items: center;
+  vertical-align: middle;
   padding-left: 35%;
+  padding-top: 2px;
 }
 .Header h1{
   color:white;
   display:inline;
   font-size:50px;
+  /* padding-top: 0px; */
 }
 
 .Header img{

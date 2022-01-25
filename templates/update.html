@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <style>
+        body{
+            border: #000;
+            
+              background-image: url("https://wallpapersmug.com/large/ba787c/black-dark-cubes-abstract.jpg");
+              background-repeat:no-repeat;
+              background-size:cover;
+              background-attachment: fixed;
+              overflow:auto ;
+            
+        }
+        textarea{
+          background-attachment: local;
+          background-image:
+              linear-gradient(to right, white 10px, transparent 10px),
+              linear-gradient(to left, white 10px, transparent 10px),
+              repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+              line-height: 31px;
+              padding: 8px 10px;
+              margin-left: 25%;
+              margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <form name="save_page" method="post" action="/user/update/{{diary._id}}">
+        <textarea name="page" rows="20px" cols="100px"></textarea>
+        <input type="submit" value="update">
+      </form>
+</body>
+</html>
