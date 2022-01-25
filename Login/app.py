@@ -13,14 +13,6 @@ app.register_blueprint(user_routes.bp)
 app.register_blueprint(route.bp)
 # Decorators
 
-# @app.route("/test_1")
-# def test_1():
-#   return redirect(url_for("test_2"))
-
-# @app.route("/test_2")
-# def test_2():
-#   return "hi"
-
 
 # Routes
 # from user import routes

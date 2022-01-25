@@ -21,8 +21,6 @@ def login():
 
 @bp.route('/add_one',methods=['POST'])
 def save():
-    
-
     diary={
     "_id": uuid.uuid4().hex,
     "body": request.form.get('page'),
@@ -36,6 +34,15 @@ def save():
     db.page.insert_one(diary)
     return render_template("diary.html",content=db.page.find())
   
+@bp.route('/update/<id>',methods=['POST','GET'])
+def upd(id):
+   
+    return redirect(url_for('/'))
 
+@bp.route('/update/{{diary._id}}',methods=['POST'])
+def update(_id):
+   
+    db.page.update_one({"_id":_id},{"$set":{"body":request.form["page"]}})
+    return render_template("diary.html",content=db.page.find())
 
   
