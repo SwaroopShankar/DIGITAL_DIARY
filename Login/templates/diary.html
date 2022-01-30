@@ -14,9 +14,9 @@
       height: 70px;
     }
   
-  table {
+  .a{
     background-color: cyan;
-    width:680px;
+    width: 1500px;;
     table-layout:fixed;
   }
 
@@ -26,26 +26,57 @@
  <body style="background-image: url(/static/diary.jpg);">
   <div class="container my-3">
     <h2 style="color: red;"><u>Your Diaries</u> </h2>
-    
-            {% for data in content %}   
-            <table border="border">
+      <table style="background-color:cyan">
+      <td style="width: 240px;">DATE</td>
+      <td style="width: 240px;">DIARY</td>
+      <td style="width: 500px;">EXPENSE</td>
+      <td style="width: 240px;">IMAGES</td>
+      <td style="width: 240px;">MODIFY</td>
+      <!-- <td>MODIFY</td> -->
+    </table>
+        {%set i = 1%}
+        {% for data1 in content1 %}   
+        
+            <table border="border" class="a">
+              
                 <tr>
-                  <td>{{data["body"]}}</td>
-                  <td>{{data["date"]}}</td>
-                  <td>
-                    <!-- {% set id = data["_id"] %}
-                    <form name="update" method="post" action="/user/update/{{id}}">
-                      <input type="submit" value="edit">
-                      <input type="submit" value="delete">
-                    </form> -->
-                    <input type="button" value="edit">
-                    <input type="button" value="delete">
+                  
+                  <td>{{data1["date"]}}</td>
+                  <td>{{data1["body"]}}</td>
+                  
+                  <td style="width: 500px;">
+                    
+                    {% if data1["date"] in date %} 
+                    {% set d = data1["date"] %}
+                    {% set total = [0] %}
+                    
+                    {% for data2 in content2 %} 
+                    
+                    {% if data2["date"] == d %}
+                    <table >
+                        <tr>
+                          
+                          <td style="width: 250px;">{{data2["cat"]}}</td>
+                          <td style="width: 250px;">{{data2["exp"]}}</td>
+                          
+                        </tr>  
+                    </table>
+                    
+                    
+                    {% set _ = total.append(total.pop() + data2["exp"]|int) %}
+                    {%endif%}
+                  {% endfor %}
+                  {%set i = i+1 %}
+                  {%set content2 = content2%}
+                  Total expense:{{total[0]}}
+                  {% endif %}
                   </td>
+                  <td>None</td>
+                  <td> <input type="button" value="edit" style="padding: 10px;">
+                  <input type="button" value="delete" style="padding: 10px;"></td>
                 </tr>
             </table>
-          {% endfor %}
-        </table>
-
+        {% endfor %}
            
        <br>
 </div>

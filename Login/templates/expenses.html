@@ -45,6 +45,9 @@
             margin-left: 25%;
             margin-top: 50px;
         }
+        form{
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -61,6 +64,12 @@
         <li><a class="active" href="/dashboard/expenses/">Expenses</a></li>
         <li><a href="/dashboard/diary">DIARY</a></li>
     </ul>
+    <form name="save_expense" method="post" action="/user/add_exp">
+        Enter the category:&nbsp;<input type="text" name="cat">
+        <br>
+        Enter the expense: <input type="text" name="exp">
+        <input type="submit" value="save" style="padding: 5px; margin-left:326px">
+      </form>
 </body>
 </html>
 
